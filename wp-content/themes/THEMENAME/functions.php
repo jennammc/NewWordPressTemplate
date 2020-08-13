@@ -99,49 +99,58 @@ function add_slug_to_body_class($classes) {
 
 
     /*
-  |----------------------------------------------------------
-  | custom menu support
-  |----------------------------------------------------------
-  */
-  
-  add_theme_support('menus');
-  
-  function register_my_menu() {
+      |----------------------------------------------------------
+      | Customizer additions
+      | * Can be found under WordPress Dashboard > Appearance > Customize > Site Identity
+      |----------------------------------------------------------
+    */
+    require get_template_directory() . '/assets/functions/wordpress-apperance-customizer.php';
+
+
+    /*
+    |----------------------------------------------------------
+    | custom menu support
+    |----------------------------------------------------------
+    */
+      
+    add_theme_support('menus');
+      
+    function register_my_menu() {
         register_nav_menu('sublevel-menu',__( 'Submenu' ));
     }
     add_action('init', 'register_my_menu');
 
 
 
-  /*
-  |----------------------------------------------------------
-  | custom menu support
-  | * @param string $file - the name of the file (eg. "sidebar.php" )
-  | * @param obj $variable_obj an object containing variables to use in the imported file (eg. echo $variable_obj['object_keyname'];)
-  |
-  | Example: include_file("navbar.php", array('navbar_id' => 'navbar-subpage-menu'));
-  |----------------------------------------------------------
-  */
-  function include_file($file, $variable_obj){
-    include($file);
-  }
+    /*
+    |----------------------------------------------------------
+    | custom menu support
+    | * @param string $file - the name of the file (eg. "sidebar.php" )
+    | * @param obj $variable_obj an object containing variables to use in the imported file (eg. echo $variable_obj['object_keyname'];)
+    |
+    | Example: include_file("navbar.php", array('navbar_id' => 'navbar-subpage-menu'));
+    |----------------------------------------------------------
+    */
+    function include_file($file, $variable_obj){
+        include($file);
+    }
 
 
 
 
 
-  /*
-  |----------------------------------------------------------
-  | Filter the except length to X words.
-  | * @param int $length Excerpt length.
-  | * @return int (Maybe) modified excerpt length.
-  |----------------------------------------------------------
-  */
-  function wpdocs_custom_excerpt_length( $length ) {
-    $max_word_count = 200;
-    return $max_word_count;
-  }
-  add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+    /*
+    |----------------------------------------------------------
+    | Filter the except length to X words.
+    | * @param int $length Excerpt length.
+    | * @return int (Maybe) modified excerpt length.
+    |----------------------------------------------------------
+    */
+    function wpdocs_custom_excerpt_length( $length ) {
+        $max_word_count = 200;
+        return $max_word_count;
+    }
+    add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 
 ?>
