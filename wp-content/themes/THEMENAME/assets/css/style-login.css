@@ -1,0 +1,26 @@
+/*
+|----------------------------------------------------------
+| Login Page Styles
+|----------------------------------------------------------
+*
+* This stylesheet will style the login page
+* located at /wp-admin or /wp-login.php
+*
+*/
+
+.login h1 a {
+	background-image: url('../images/logo.png');
+	background-size: 108px 149px;
+	height: 155px;
+	width: 112px;
+}
+
+.wp-core-ui .button-primary {
+	background: #005EA1 none repeat scroll 0 0;
+	border-color: #005EA1;
+}
+
+.wp-core-ui .button-primary:hover {
+	background: #005EA1;
+	border-color: #005EA1;
+}
