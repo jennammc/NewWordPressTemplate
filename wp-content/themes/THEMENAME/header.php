@@ -2,7 +2,7 @@
 <html <?php language_attributes(); ?> class="no-js">
   <head>
     <meta charset="<?php bloginfo('charset'); ?>">
-    <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' :'; } ?> <?php bloginfo('name'); ?></title>
+    <title><?php wp_title(''); ?><?php if(wp_title('', false)) { echo ' |'; } ?> <?php bloginfo('name'); ?></title>
 
     <link href="//www.google-analytics.com" rel="dns-prefetch">
     <link href="<?php echo get_site_icon_url() ; ?>" rel="shortcut icon">
@@ -23,7 +23,7 @@
 
     <header class="header" role="banner">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="<?php echo get_site_url(); ?>"><?php echo get_bloginfo(); ?></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,10 +34,12 @@
                       'theme_location' => 'header_nav', 
                       'container' => '',
                       'menu_class' => 'collapse navbar-collapse',
-                      'items_wrap' => '<ul  class="navbar-nav ml-auto">%3$s</ul>',
+                      'items_wrap' => '<ul  class="navbar-nav mr-auto">%3$s</ul>',
                     )); 
                 ?>
             </div>
+
+            <?php include("searchform.php"); ?>
         </nav> 
     </header>
 

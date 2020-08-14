@@ -1,14 +1,16 @@
 
   
-    <footer class="footer" role="contentinfo">
-        <div class="row">
-            <a class="logo" href="/">
-                <!-- Place Logo Here -->
-            </a>
-            <nav class="footer-nav">
-                <?php wp_nav_menu( array('theme_location' => 'footer_nav', 'container' => '') ); ?>
-            </nav>
-        </div><!-- .row -->
+    <footer id="footer" role="contentinfo">
+        <div class="container">
+            <div class="row">
+                <a class="logo" href="/">
+                    <!-- Place Logo Here -->
+                </a>
+                <nav class="footer-nav">
+                    <?php wp_nav_menu( array('theme_location' => 'footer_nav', 'container' => '') ); ?>
+                </nav>
+            </div><!-- .row -->
+        </div>
     </footer>
 
 

@@ -1,27 +1,100 @@
-/*
-@import "variables";
+/*==========================================================
+    * TABLE OF CONTENTS
+    * 01. Global Styling
+    * 02. Gloabal Elements
+    * 03. Gloabal Classes
+    * 04. Header and Nav Bar
+    * 05. Homepage
+    * 06. Interior Pages
+    * 07. Footer
+    * 00. Mobile
+==========================================================*/
 
-// Vendors
-@import "foundation";
-@import "swiper";
 
-// Modules
-@import "normalize";
-@import "mixins";
-@import "spacing";
 
-// Partials
-@import "global";
-@import "icon-font";
-@import "typography";
-@import "header";
-@import "templates";
-@import "site-locator";
-@import "sections";
-@import "buttons";
-@import "forms";
-@import "footer";
-@import "other";
-*/
 
-/*# sourceMappingURL=main.css.map */
+/*==========================================================
+    * 01. Global Styling
+==========================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap');
+
+
+:root{
+    --black: #000000;
+    --white: #FFFFFF;
+    --whitesmoke: #F5F5F5;
+    
+}
+
+body {
+  background: #FFF;
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
+/*==========================================================
+    * 02. Gloabal Elements
+==========================================================*/
+a, a:visited{
+    text-decoration: none;
+}
+
+img{
+    width: 100%;
+}
+
+
+
+/*==========================================================
+    * 03. Gloabal Classes
+==========================================================*/
+
+
+
+/*==========================================================
+    * 04. Header and Nav Bar
+==========================================================*/
+header.header nav.navbar .navbar-collapse ul li a{
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+
+
+
+
+
+/*==========================================================
+    * 05. Homepage
+==========================================================*/
+
+
+
+
+
+/*==========================================================
+    * 06. Interior Pages
+==========================================================*/
+
+
+
+
+
+/*==========================================================
+    * 07. Footer
+==========================================================*/
+footer#footer{
+    background: #f8f9fa;
+    padding: 50px;
+}
+
+
+
+
+
+/*==========================================================
+    * 00. Mobile
+==========================================================*/
+
+
