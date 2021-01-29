@@ -4,9 +4,13 @@
     * 02. Gloabal Elements
     * 03. Gloabal Classes
     * 04. Header and Nav Bar
+        * 04.a Mobile Menu
     * 05. Homepage
     * 06. Interior Pages
-    * 07. Footer
+    * 07. 
+    * 08. 
+    * 09. 
+    * 10. Footer
     * 00. Mobile
 ==========================================================*/
 
@@ -20,6 +24,28 @@
 
 
 :root{
+    --header-background-color: #f8f9fa;
+    --header-link-color: #007bff;
+    --header-menu-link-hover: #007bff;
+    --header-social-link-background-color: #f8f9fa;
+    --header-social-link-color-hover: #007bff;
+    --header-social-link-background-color-hover: #007bff;
+    --header-social-link-color-hover: #007bff;
+
+    --primary-button-color: #28a745;
+    --primary-button-background-color: #FFF;
+    --primary-button-color-hover: #FFF;
+    --primary-button-background-color-hover: #28a745;
+
+    --footer-background-color: #f8f9fa;
+    --footer-color: #212529;
+    --footer-link-color: #212529;
+    --footer-link-color-hover: #212529;
+    --footer-social-link-color: #007bff;
+    --footer-social-link-background-color: #212529;
+    --footer-social-link-background-color-hover: #212529;
+    --footer-social-link-color-hover: #212529;
+
     --black: #000000;
     --white: #FFFFFF;
     --whitesmoke: #F5F5F5;
@@ -30,6 +56,8 @@ body {
   background: #FFF;
   font-family: 'Montserrat', sans-serif;
 }
+
+
 
 
 
@@ -49,16 +77,179 @@ img{
 /*==========================================================
     * 03. Gloabal Classes
 ==========================================================*/
+.primary-button{
+    color: var(--primary-button-color);
+    background-color: var(--primary-button-background-color);
+    border-color: var(--primary-button-color);
+}
+.primary-button:hover{
+    color: var(--primary-button-color-hover);
+    background-color: var(--primary-button-background-color-hover);
+    border-color: var(--primary-button-color-hover);
+}
 
 
 
 /*==========================================================
     * 04. Header and Nav Bar
 ==========================================================*/
-header.header nav.navbar .navbar-collapse ul li a{
+header.header{
+    background-color: var(--header-background-color);
+}
+header.header nav.navbar{
+    padding-left: 0;
+    padding-right: 0;
+}
+header.header nav.navbar a.navbar-brand img{
+    width: 250px; 
+}
+header.header nav.navbar .navbar-collapse ul li a,
+header.header nav.navbar .navbar-collapse ul li a:visited{
+    color: var(--header-menu-link);
     display: inline-block;
     padding: 5px 10px;
+    text-transform: uppercase;
 }
+header.header nav.navbar .navbar-collapse ul li a:hover{
+    color: var(--header-menu-link-hover);
+    text-decoration: none;
+}
+header.header nav.navbar .navbar-collapse ul li span.separator{
+    color: var(--menu-link);
+}
+header.header nav.navbar .navbar-collapse ul li:last-child span.separator {
+    display: none;
+}
+header.header nav.navbar .navbar-collapse ul.social-links{
+    list-style: none;
+}
+header.header nav.navbar .navbar-collapse ul.social-links li{
+    display: inline-block;
+}
+header.header nav.navbar .navbar-collapse ul.social-links li a{
+    padding: 5px 10px;
+}
+header.header nav.navbar .navbar-collapse ul.social-links li a .icon{
+    background-color: var(--header-social-link-background-color);
+    border-radius: 50px;
+    color: var(--header-social-link-color-hover);
+    padding: 6px 0;
+    text-align: center;
+    width: 27px;
+}
+header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
+    background-color: var(--header-social-link-background-color-hover);
+    color: var(--header-social-link-color-hover);
+}
+
+
+    /*----------------------------------------------------------
+        * 04.a Mobile Menu
+    ----------------------------------------------------------*/
+    header.header nav.navbar .navbar-collapse.show{
+        background-color: var(--dark-blue);
+        height: calc( 100vh - 73px);
+        left: 0;
+        position: fixed;
+        top: 73px;
+        width: 100%;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.navbar-nav{
+        padding: 15px 30px;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li{
+        border-bottom: 1px solid white;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li:last-child{
+        border-bottom: 0px solid white;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li a{
+        font-size: 20px;
+        padding: 20px 0;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li span.separator{
+        display: none;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.social-links{
+        display: block;
+        text-align: center;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.social-links li{
+        border-bottom: none;
+    }
+    header.header nav.navbar .navbar-collapse.show ul.social-links li a .icon{
+        margin: 0 10px;
+        width: 32px;
+    }
+
+    body:not(.page-template-template-home) header.header nav.navbar .navbar-collapse.show{
+        height: calc( 100vh - 93px);
+        top: 93px;
+    }
+
+    /* MOBILE HEADER BTN */
+    .mobile-menu-btn {
+        background-color: transparent;
+        border: 0;
+        display: inline-block;
+        height: 50px;
+        right: 9px;
+        margin: 0;
+        min-width: inherit;
+        position: fixed;
+        top: 11px;
+        width: 50px;
+        z-index: 2;
+    }
+    @media only screen and (min-width: 992px) {
+        .mobile-menu-btn {
+            display: none;
+        }
+    }
+    .mobile-menu-btn span {
+        left: 13px;
+        top: 24px;
+    }
+    .mobile-menu-btn span::before, .mobile-menu-btn span::after {
+        content: '';
+        transform: rotate(0);
+    }
+    .mobile-menu-btn span::before {
+        top: -8px;
+    }
+    .mobile-menu-btn span::after {
+        bottom: -8px;
+    }
+    .mobile-menu-btn span,
+    .mobile-menu-btn span::before,
+    .mobile-menu-btn span::after {
+        background-color: var(--menu-link);
+        display: block;
+        height: 1px;
+        transition: all .3s ease-in-out;
+        position: absolute;
+        width: 22px;
+    }
+    .mobile-menu-btn:hover, .mobile-menu-btn:focus, .mobile-menu-btn:active, .mobile-menu-btn:not(.collapsed) {
+        background-color: transparent;
+        border: 0;
+        outline: none;
+    }
+    .mobile-menu-btn:not(.collapsed) span {
+        background-color: transparent;
+    }
+    .mobile-menu-btn:not(.collapsed) span::before, .mobile-menu-btn:not(.collapsed) span::after {
+        background-color: var(--menu-link);
+        top: 0;
+    }
+    .mobile-menu-btn:not(.collapsed) span::before {
+        transform: rotate(45deg);
+    }
+    .mobile-menu-btn:not(.collapsed) span::after {
+        transform: rotate(-45deg);
+    }
+
+    
 
 
 
@@ -78,15 +269,93 @@ header.header nav.navbar .navbar-collapse ul li a{
 ==========================================================*/
 
 
+/*==========================================================
+    * 07. 
+==========================================================*/
+
+
+/*==========================================================
+    * 08. 
+==========================================================*/
 
 
 
 /*==========================================================
-    * 07. Footer
+    * 10. Footer
 ==========================================================*/
 footer#footer{
-    background: #f8f9fa;
-    padding: 50px;
+    background-color: var(--footer-background-color);
+    color: var(--footer-color);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+footer#footer .contact-section{
+    margin-bottom: 10px;
+}
+footer#footer .contact-section.name{
+    font-weight: bold;
+    text-transform: uppercase;
+}
+footer#footer .contact-section p{
+    margin-bottom: 0;
+}
+footer#footer nav.footer-nav{
+    display: flex;
+}
+footer#footer nav.footer-nav ul.menu{
+    flex: 1;
+    list-style: none;
+    padding: 0;
+    text-align: right;
+}
+footer#footer nav.footer-nav ul.menu li{
+    display: inline-block;
+}
+footer#footer nav.footer-nav ul.menu li a,
+footer#footer nav.footer-nav ul.menu li a:visited {
+    color: var(--footer-link-color);
+    padding: 2px 5px;
+}
+footer#footer nav.footer-nav ul.menu li a:hover{
+    color: var(--footer-link-color-hover);
+}
+footer#footer nav.footer-nav ul.menu li span.separator{
+    color: var(--footer-color);
+}
+footer#footer nav.footer-nav ul.menu li:last-child span.separator {
+    display: none;
+}
+footer#footer nav.footer-nav ul.social-links{
+    display: block;
+    list-style: none;
+}
+footer#footer nav.footer-nav ul.social-links li{
+    display: inline-block;
+}
+footer#footer nav.footer-nav ul.social-links li a{
+    padding: 5px 5px;
+}
+footer#footer nav.footer-nav ul.social-links li a .icon{
+    background-color: var(--footer-social-link-background-color);
+    border-radius: 50px;
+    color: var(--footer-social-link-color);
+    padding: 6px 0;
+    text-align: center;
+    width: 27px;
+}
+footer#footer nav.footer-nav ul.social-links li a:hover .icon{
+    background-color: var(--footer-social-link-background-color-hover);
+    color: var(--footer-social-link-color-hover);
+}
+
+
+@media (max-width: 767px) {
+    footer#footer nav.footer-nav{
+        display: block;
+    }
+    footer#footer nav.footer-nav ul#menu-footer-menu{
+        text-align: left;
+    }
 }
 
 

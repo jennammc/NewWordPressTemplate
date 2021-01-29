@@ -20,27 +20,48 @@
   </head>
   <body <?php body_class(); ?>>
 
+    <?php
+        $header_logo = get_theme_mod('site_logo');
+        $site_title = get_bloginfo();
+    ?>
 
-    <header class="header" role="banner">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="<?php echo get_site_url(); ?>"><?php echo get_bloginfo(); ?></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <?php 
-                    wp_nav_menu( array(
-                      'theme_location' => 'header_nav', 
-                      'container' => '',
-                      'menu_class' => 'collapse navbar-collapse',
-                      'items_wrap' => '<ul  class="navbar-nav mr-auto">%3$s</ul>',
-                    )); 
-                ?>
+    <?php include("includes/announcement-bar.php"); ?>
+    <header class="header" role="banner">   
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <nav class="navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="<?php echo get_site_url(); ?>">
+                            <?php if($header_logo != ""){ ?> 
+                                <img src="<?php echo $header_logo; ?>" alt="<?php echo $site_title; ?> logo">
+                            <?php } else { ?> 
+                                <?php echo $site_title; ?>
+                            <?php } ?>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <?php 
+                                wp_nav_menu( array(
+                                  'theme_location' => 'header_nav', 
+                                  'container' => '',
+                                  'menu_class' => 'collapse navbar-collapse',
+                                  'items_wrap' => '<ul  class="navbar-nav mr-auto">%3$s</ul>',
+                                  'after' => '<span class="separator">&bull;</span>'
+                                )); 
+                            ?>
+                        </div>
+                        <?php include("includes/social-links.php"); ?>
+                        <?php include("includes/searchform.php"); ?>
+                    </nav>
+
+                </div>
             </div>
-
-            <?php include("searchform.php"); ?>
-        </nav> 
+        </div>    
     </header>
 
 
