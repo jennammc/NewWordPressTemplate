@@ -10,7 +10,8 @@
     * 07. 
     * 08. 
     * 09. 
-    * 10. Footer
+    * 10. 404
+    * 11. Footer
     * 00. Mobile
 ==========================================================*/
 
@@ -24,6 +25,9 @@
 
 
 :root{
+    --primary-link-color: #28a745;
+    --primary-link-color-hover: #28a745;
+
     --header-background-color: #f8f9fa;
     --header-link-color: #007bff;
     --header-menu-link-hover: #007bff;
@@ -65,6 +69,11 @@ body {
     * 02. Gloabal Elements
 ==========================================================*/
 a, a:visited{
+    color: var(--primary-link-color);
+    text-decoration: none;
+}
+a:hover{
+    color: var(--primary-link-color-hover);
     text-decoration: none;
 }
 
@@ -133,6 +142,7 @@ header.header nav.navbar .navbar-collapse ul.social-links li a .icon{
     background-color: var(--header-social-link-background-color);
     border-radius: 50px;
     color: var(--header-social-link-color-hover);
+    display: inline-block;
     padding: 6px 0;
     text-align: center;
     width: 27px;
@@ -281,7 +291,18 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
 
 
 /*==========================================================
-    * 10. Footer
+    * 10. 404
+==========================================================*/
+main.interior-404 .main-content{
+    text-align: center;
+}
+main.interior-404 .main-content h1 {
+    font-size: 70px;
+}
+
+
+/*==========================================================
+    * 11. Footer
 ==========================================================*/
 footer#footer{
     background-color: var(--footer-background-color);
@@ -339,6 +360,7 @@ footer#footer nav.footer-nav ul.social-links li a .icon{
     background-color: var(--footer-social-link-background-color);
     border-radius: 50px;
     color: var(--footer-social-link-color);
+    display: inline-block;
     padding: 6px 0;
     text-align: center;
     width: 27px;

@@ -11,35 +11,35 @@
     <?php if( $email != ""){ ?>         
         <li>
             <a href="mailto:<?php echo $email; ?>" title="email">
-                <i class="icon fa fa-envelope"></i>
+                <i class="icon icon-envelope"></i>
             </a>
         </li>   
     <?php } ?>  
     <?php if( $facebook_url != ""){ ?>      
         <li>
             <a href="<?php echo $facebook_url; ?>" title="facebook" target="_blank"  rel="noopener noreferrer">
-                <i class="icon fab fa-facebook-f"></i>
+                <i class="icon icon-facebook"></i>
             </a>
         </li>  
     <?php } ?>  
     <?php if( $patreon_url != ""){ ?>       
         <li>
             <a href="<?php echo $patreon_url; ?>" title="patreon" target="_blank"  rel="noopener noreferrer">
-                <i class="icon  fab fa-patreon"></i>
+                <i class="icon icon-patreon"></i>
             </a>
         </li>  
     <?php } ?>  
     <?php if( $twitter_url != ""){ ?>       
         <li>
             <a href="<?php echo $twitter_url; ?>" title="twitter" target="_blank"  rel="noopener noreferrer">
-                <i class="icon fab fa-twitter"></i>
+                <i class="icon icon-twitter"></i>
             </a>
         </li>   
     <?php } ?>  
     <?php if( $tumblr_url != ""){ ?>        
         <li>
             <a href="<?php echo $tumblr_url; ?>" title="tumblr" target="_blank"  rel="noopener noreferrer">
-                <i class="icon fab fa-tumblr"></i>
+                <i class="icon icon-tumblr"></i>
             </a>
         </li>  
     <?php } ?>

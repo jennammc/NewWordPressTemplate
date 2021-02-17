@@ -11,7 +11,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- :::::::::: Fonts :::::::::: -->
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <?php $theme_name = get_current_theme(); ?>
+    <link href="/wp-content/themes/<?php echo $theme_name; ?>/assets/images/icons/icomoon/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto+Slab:700" rel="stylesheet"> 
 
     <!-- :::::::::: Critical Path CSS :::::::::: -->
@@ -55,9 +56,10 @@
                                   'after' => '<span class="separator">&bull;</span>'
                                 )); 
                             ?>
+                        
+                            <?php include("includes/social-links.php"); ?>
+                            <?php include("includes/searchform.php"); ?>
                         </div>
-                        <?php include("includes/social-links.php"); ?>
-                        <?php include("includes/searchform.php"); ?>
                     </nav>
 
                 </div>

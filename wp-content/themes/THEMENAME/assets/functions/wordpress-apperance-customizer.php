@@ -201,7 +201,7 @@ function add_custom_panel($wp_customize){
     $wp_customize->add_setting('site_404_copy_main');
     $wp_customize->add_control(  'site_404_copy_main',
         array(
-            'label' => '404 Copy',
+            'label' => '404 Main Copy',
             'section' =>'404_custom_section',
             'settings' => 'site_404_copy_main',
             'type' => 'textarea'
@@ -212,7 +212,7 @@ function add_custom_panel($wp_customize){
     $wp_customize->add_setting('site_404_copy_secondary');
     $wp_customize->add_control(  'site_404_copy_secondary',
         array(
-            'label' => '404 Copy',
+            'label' => '404 Secondary Copy',
             'section' =>'404_custom_section',
             'settings' => 'site_404_copy_secondary',
             'type' => 'textarea'
@@ -227,6 +227,31 @@ function add_custom_panel($wp_customize){
             'label' => 'What the Home Button Will Say',
             'section' =>'404_custom_section',
             'settings' => 'site_404_home_btn_copy'
+        ) 
+    );
+
+
+    //---------------------------------------------------------------------------------
+    // Theme Options: Search Results Page
+    //---------------------------------------------------------------------------------
+    //create interior panels
+    $wp_customize->add_section('search_custom_section',array(
+        'title'=>'Search Results Page',
+        'priority'=>10,
+        'panel'=>'custom_panel',
+    ));
+
+    
+
+    // add a setting for the site 404 main 404 copy
+    $wp_customize->add_setting('site_search_items_per_page');
+    $wp_customize->add_control(  'site_search_items_per_page',
+        array(
+            'label' => 'Items Per Page',
+            'section' =>'search_custom_section',
+            'settings' => 'site_search_items_per_page',
+            'type' => 'select',
+            'choices' => array("1" => 1, "5" => 5, "10" => 10, "15" => 15, "20" => 20)
         ) 
     );
 
