@@ -11,8 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- :::::::::: Fonts :::::::::: -->
-    <?php $theme_name = get_current_theme(); ?>
-    <link href="/wp-content/themes/<?php echo $theme_name; ?>/assets/images/icons/icomoon/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Roboto+Slab:700" rel="stylesheet"> 
 
     <!-- :::::::::: Critical Path CSS :::::::::: -->
@@ -24,6 +22,7 @@
 
     <?php
         $header_logo = get_theme_mod('site_logo');
+        $header_image = get_theme_mod('site_header_image');
         $site_title = get_bloginfo();
     ?>
 
@@ -42,8 +41,8 @@
                                 <?php echo $site_title; ?>
                             <?php } ?>
                         </a>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                        <button class="navbar-toggler mobile-menu-btn collapsed" type="button" data-toggle="collapse" data-target=".menu-header-navigation" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span></span>
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -64,9 +63,9 @@
 
                 </div>
             </div>
-        </div>    
-    </header>
-
-
+        </div>
+        <?php if($header_image && $header_image != ""): ?>
+            <img src="<?php echo $header_image; ?>">
+        <?php endif; ?>
     
-
+    </header>

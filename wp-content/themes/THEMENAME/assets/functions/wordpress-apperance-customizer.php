@@ -77,16 +77,6 @@ function add_custom_panel($wp_customize){
     );
 
 
-    //Site Social: Patreon
-    $wp_customize->add_setting( 'site_social_patreon' );
-    $wp_customize->add_control( 'site_social_patreon',
-       array(
-            'label' => 'Patreon URL',
-            'section' =>'contact_custom_section',
-            'settings' => 'site_social_patreon',
-        )
-    );
-
     //Site Social: Twitter
     $wp_customize->add_setting( 'site_social_twitter' );
     $wp_customize->add_control( 'site_social_twitter',
@@ -97,14 +87,13 @@ function add_custom_panel($wp_customize){
         )
     );
 
-
-    //Site Social: Tumblr
-    $wp_customize->add_setting( 'site_social_tumblr' );
-    $wp_customize->add_control( 'site_social_tumblr',
+    //Site Social: LinkedIn
+    $wp_customize->add_setting( 'site_social_linkedin' );
+    $wp_customize->add_control( 'site_social_linkedin',
        array(
-            'label' => 'Tumblr URL',
+            'label' => 'LinkedIn URL',
             'section' =>'contact_custom_section',
-            'settings' => 'site_social_tumblr',
+            'settings' => 'site_social_linkedin',
         )
     );
 
@@ -174,6 +163,42 @@ function add_custom_panel($wp_customize){
     );
 
 
+
+
+    //---------------------------------------------------------------------------------
+    // Theme Options: Header
+    //---------------------------------------------------------------------------------
+    //create interior panels
+    $wp_customize->add_section('header_custom_section',array(
+        'title'=>'Header',
+        'priority'=>10,
+        'panel'=>'custom_panel',
+    ));
+
+    // add a setting for the site header image
+    $wp_customize->add_setting('site_header_image');
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_header_image',
+        array(
+            'label' => 'Heaer Image',
+            'section' =>'header_custom_section',
+            'settings' => 'site_header_image',
+        ) 
+    ) );
+
+
+    // show search bar
+    $wp_customize->add_setting('site_show_search_bar');
+    $wp_customize->add_control(  'site_show_search_bar',
+        array(
+            'label' => 'Show Search Bar',
+            'section' =>'header_custom_section',
+            'settings' => 'site_show_search_bar',
+            'type' => 'checkbox',
+        ) 
+    );
+
+
+
     //---------------------------------------------------------------------------------
     // Theme Options: 404 Page
     //---------------------------------------------------------------------------------
@@ -187,7 +212,7 @@ function add_custom_panel($wp_customize){
     
     // add a setting for the site 404 main 404 image
     $wp_customize->add_setting('site_404_image');
-    // Add a control to upload the logo
+    // Add a control to upload the 404 image
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_404_image',
         array(
             'label' => 'Upload 404 Image',

@@ -28,6 +28,9 @@ function site_scripts() {
   // Register bootstrap stylesheet
   wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap/bootstrap.min.css', array(), '', 'all' );
 
+  // icomoon
+  wp_enqueue_style( 'icomoon-css', get_template_directory_uri() . '/assets/images/icons/icomoon/style.css', array(), '', 'all' );
+
   // Register main stylesheet
   wp_enqueue_style( 'site-css', get_template_directory_uri() . '/assets/css/main.css', array(), '', 'all' );
 

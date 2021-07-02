@@ -124,7 +124,7 @@ header.header nav.navbar .navbar-collapse ul li a:hover{
     text-decoration: none;
 }
 header.header nav.navbar .navbar-collapse ul li span.separator{
-    color: var(--menu-link);
+    color: var(--header-menu-link-color);
 }
 header.header nav.navbar .navbar-collapse ul li:last-child span.separator {
     display: none;
@@ -156,45 +156,56 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
     /*----------------------------------------------------------
         * 04.a Mobile Menu
     ----------------------------------------------------------*/
-    header.header nav.navbar .navbar-collapse.show{
-        background-color: var(--dark-blue);
-        height: calc( 100vh - 73px);
-        left: 0;
-        position: fixed;
-        top: 73px;
-        width: 100%;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.navbar-nav{
-        padding: 15px 30px;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li{
-        border-bottom: 1px solid white;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li:last-child{
-        border-bottom: 0px solid white;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li a{
-        font-size: 20px;
-        padding: 20px 0;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.navbar-nav li span.separator{
-        display: none;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.social-links{
-        display: block;
-        text-align: center;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.social-links li{
-        border-bottom: none;
-    }
-    header.header nav.navbar .navbar-collapse.show ul.social-links li a .icon{
-        margin: 0 10px;
-        width: 32px;
-    }
+    @media (max-width: 991px) {
+        header.header nav.navbar .navbar-collapse.show{
+            background-color: var(--header-background-color);
+            height: calc( 100vh - 73px);
+            left: 0;
+            position: fixed;
+            top: 100px;
+            width: 100%;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.navbar-nav{
+            padding: 15px 30px;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.navbar-nav li{
+            border-bottom: 1px solid white;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.navbar-nav li:last-child{
+            border-bottom: 0px solid white;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.navbar-nav li a{
+            font-size: 20px;
+            padding: 20px 0;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.navbar-nav li span.separator{
+            display: none;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.social-links{
+            display: block;
+            text-align: center;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.social-links li{
+            border-bottom: none;
+        }
+        header.header nav.navbar .navbar-collapse.show ul.social-links li a .icon{
+            margin: 0 10px;
+            width: 32px;
+        }
 
-    body:not(.page-template-template-home) header.header nav.navbar .navbar-collapse.show{
-        height: calc( 100vh - 93px);
-        top: 93px;
+        header.header nav.navbar .navbar-collapse.show form{
+            display: block;
+            padding: 0 30px;
+            text-align: center;
+        }
+        header.header nav.navbar .navbar-collapse.show form .search-submit{
+            display: inline-block;
+        }
+
+        body:not(.page-template-template-home) header.header nav.navbar .navbar-collapse.show{
+            height: calc( 100vh - 93px);
+            top: 93px;
+        }
     }
 
     /* MOBILE HEADER BTN */
@@ -205,8 +216,9 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
         height: 50px;
         right: 9px;
         margin: 0;
+        margin-top: 1px;
         min-width: inherit;
-        position: fixed;
+        position: absolute;
         top: 11px;
         width: 50px;
         z-index: 2;
@@ -233,7 +245,7 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
     .mobile-menu-btn span,
     .mobile-menu-btn span::before,
     .mobile-menu-btn span::after {
-        background-color: var(--menu-link);
+        background-color: var(--header-menu-link-color);
         display: block;
         height: 1px;
         transition: all .3s ease-in-out;

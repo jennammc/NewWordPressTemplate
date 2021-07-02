@@ -1,10 +1,9 @@
 <?php       
     $page_title = get_the_title();      
     $email = get_theme_mod( 'site_email');      
-    $facebook_url = get_theme_mod( 'site_social_facebook');     
-    $patreon_url = get_theme_mod( 'site_social_patreon');       
+    $facebook_url = get_theme_mod( 'site_social_facebook');          
     $twitter_url = get_theme_mod( 'site_social_twitter');       
-    $tumblr_url = get_theme_mod( 'site_social_tumblr');
+    $linkedin_url = get_theme_mod( 'site_social_linkedin');       
 ?>
 
 <ul class="navbar-nav social-links">    
@@ -22,13 +21,6 @@
             </a>
         </li>  
     <?php } ?>  
-    <?php if( $patreon_url != ""){ ?>       
-        <li>
-            <a href="<?php echo $patreon_url; ?>" title="patreon" target="_blank"  rel="noopener noreferrer">
-                <i class="icon icon-patreon"></i>
-            </a>
-        </li>  
-    <?php } ?>  
     <?php if( $twitter_url != ""){ ?>       
         <li>
             <a href="<?php echo $twitter_url; ?>" title="twitter" target="_blank"  rel="noopener noreferrer">
@@ -36,10 +28,10 @@
             </a>
         </li>   
     <?php } ?>  
-    <?php if( $tumblr_url != ""){ ?>        
+    <?php if( $linkedin_url != ""){ ?>        
         <li>
-            <a href="<?php echo $tumblr_url; ?>" title="tumblr" target="_blank"  rel="noopener noreferrer">
-                <i class="icon icon-tumblr"></i>
+            <a href="<?php echo $social_linkedin; ?>" title="linked in" target="_blank"  rel="noopener noreferrer">
+                <i class="icon icon-linkedin"></i>
             </a>
         </li>  
     <?php } ?>
