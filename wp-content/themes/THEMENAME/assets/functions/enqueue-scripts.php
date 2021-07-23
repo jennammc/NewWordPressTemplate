@@ -11,6 +11,9 @@ function site_scripts() {
   // Modernizr
   wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/lib/modernizr.flexbox.js', array(), '2.7.1');
 
+  // Hamburger Menu
+  wp_enqueue_script( 'hamburger-js', get_template_directory_uri() . '/assets/js/hamburgers.js');
+
   // Adding scripts file in the footer
   wp_enqueue_script( 'site-js', get_template_directory_uri() . '/assets/js/scripts.js', array( 'jquery' ), '', true );
 
