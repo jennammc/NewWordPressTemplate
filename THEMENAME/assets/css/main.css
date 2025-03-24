@@ -1,18 +1,20 @@
 /*==========================================================
     * TABLE OF CONTENTS
     * 01. Global Styling
-    * 02. Gloabal Elements
-    * 03. Gloabal Classes
+    * 02. Global Elements
+    * 03. Global Classes
     * 04. Header and Nav Bar
         * 04.a Mobile Menu
-    * 05. Homepage
-    * 06. Interior Pages
-    * 07. 
-    * 08. 
-    * 09. 
+    * 05. Footer
+    * 06. Homepage
+    * 07. Login Page
+    * 08. Search Page
+    * 09. Contact Page
     * 10. 404
-    * 11. Footer
-    * 00. Mobile
+    * 11. Interior Pages
+    * 12. 
+    * 13.
+    * 14.  
 ==========================================================*/
 
 
@@ -57,8 +59,8 @@
 }
 
 body {
-  background: #FFF;
-  font-family: 'Montserrat', sans-serif;
+    background: #FFF;
+    font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -111,6 +113,14 @@ header.header nav.navbar{
 }
 header.header nav.navbar a.navbar-brand img{
     width: 250px; 
+}
+header.header nav.navbar .navbar-collapse ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
 }
 header.header nav.navbar .navbar-collapse ul li a,
 header.header nav.navbar .navbar-collapse ul li a:visited{
@@ -272,49 +282,8 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
     }
 
     
-
-
-
-
-
-
 /*==========================================================
-    * 05. Homepage
-==========================================================*/
-
-
-
-
-
-/*==========================================================
-    * 06. Interior Pages
-==========================================================*/
-
-
-/*==========================================================
-    * 07. 
-==========================================================*/
-
-
-/*==========================================================
-    * 08. 
-==========================================================*/
-
-
-
-/*==========================================================
-    * 10. 404
-==========================================================*/
-main.interior-404 .main-content{
-    text-align: center;
-}
-main.interior-404 .main-content h1 {
-    font-size: 70px;
-}
-
-
-/*==========================================================
-    * 11. Footer
+    * 05. Footer
 ==========================================================*/
 footer#footer{
     background-color: var(--footer-background-color);
@@ -334,28 +303,28 @@ footer#footer .contact-section p{
 }
 footer#footer nav.footer-nav{
     display: flex;
+    justify-content: flex-end;
 }
-footer#footer nav.footer-nav ul.menu{
-    flex: 1;
+footer#footer nav.footer-nav ul{
     list-style: none;
     padding: 0;
     text-align: right;
 }
-footer#footer nav.footer-nav ul.menu li{
+footer#footer nav.footer-nav ul li{
     display: inline-block;
 }
-footer#footer nav.footer-nav ul.menu li a,
-footer#footer nav.footer-nav ul.menu li a:visited {
+footer#footer nav.footer-nav ul li a,
+footer#footer nav.footer-nav ul li a:visited {
     color: var(--footer-link-color);
     padding: 2px 5px;
 }
-footer#footer nav.footer-nav ul.menu li a:hover{
+footer#footer nav.footer-nav ul li a:hover{
     color: var(--footer-link-color-hover);
 }
-footer#footer nav.footer-nav ul.menu li span.separator{
+footer#footer nav.footer-nav ul li span.separator{
     color: var(--footer-color);
 }
-footer#footer nav.footer-nav ul.menu li:last-child span.separator {
+footer#footer nav.footer-nav ul li:last-child span.separator {
     display: none;
 }
 footer#footer nav.footer-nav ul.social-links{
@@ -394,10 +363,78 @@ footer#footer nav.footer-nav ul.social-links li a:hover .icon{
 
 
 
+/*==========================================================
+    * 06. Homepage
+==========================================================*/
+
+
+
 
 
 /*==========================================================
-    * 00. Mobile
+    * 07. Login Page
 ==========================================================*/
+
+
+
+
+
+/*==========================================================
+    * 08. Search Page
+==========================================================*/
+
+
+
+
+
+/*==========================================================
+   * 09. Contact Page
+==========================================================*/
+
+
+
+
+
+/*==========================================================
+    * 10. 404
+==========================================================*/
+main.interior-404 .main-content{
+    text-align: center;
+}
+main.interior-404 .main-content h1 {
+    font-size: 70px;
+}
+
+
+
+/*==========================================================
+    * 11. Interior Pages
+==========================================================*/
+main.interior{
+    margin: 100px 0;
+}
+
+
+
+/*==========================================================
+    * 12. 
+==========================================================*/
+
+
+
+
+
+/*==========================================================
+    * 13. 
+==========================================================*/
+
+
+
+
+
+/*==========================================================
+    * 14. 
+==========================================================*/
+
 
 

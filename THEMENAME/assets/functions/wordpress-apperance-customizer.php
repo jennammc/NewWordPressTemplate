@@ -257,7 +257,7 @@ function add_custom_panel($wp_customize){
             'label' => 'Login Redirect',
             'section' =>'login_page_custom_section',
             'settings' => 'site_login_redirect',
-            'description' => 'Where to redirect the user after loggin in.',
+            'description' => 'Where to redirect the user after loggin in. If this is empty, it will redirect to the user profile page of WordPress.',
         )
     );
 

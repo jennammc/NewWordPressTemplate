@@ -110,7 +110,6 @@ function add_slug_to_body_class($classes) {
     | custom menu support
     |----------------------------------------------------------
     */
-      
     add_theme_support('menus');
       
     function register_my_menu() {
@@ -134,21 +133,39 @@ function add_slug_to_body_class($classes) {
 
 
 
-    /*
-    |----------------------------------------------------------
-    | Checks if user is logged in and is on the homepage. 
-    | If they are, redirects elsewhere
-    | Otherwise, keep user on the page to login
-    |----------------------------------------------------------
+    /**
+    * ----------------------------------------------------------
+    * Checks if user is logged in and is on the homepage. If they are, redirects elsewhere. Otherwise, keep user on the page to login.
+    *
+    * @param string $new_page The URL the user will be redirected to if logged in 
+    * ----------------------------------------------------------
     */
-    function check_if_user_is_logged_in_and_on_homepage($new_page){
+    function check_if_user_is_logged_in_and_on_homepage($new_page = ""){
         $is_user_logged_in = is_user_logged_in();
         $is_front_page = is_front_page();
+        $new_page = is_string($new_page) && trim($new_page)  != "" ? $new_page : get_edit_profile_url();
+        $login_page = get_home_url();
 
         if($is_user_logged_in && $is_front_page){
             header("Location: " . $new_page);
+        }else if($is_user_logged_in == false && $is_front_page == false){
+            header("Location: " . $login_page);
         }
     }
+    
 
 
+    /**
+    * ----------------------------------------------------------
+    * Checks if the variable is a string and is not empty
+    *
+    * @param string $new_string The string that will be checked
+    * ----------------------------------------------------------
+    */
+    function is_valid_string($new_string){
+        if(is_string($new_string) && trim($new_string) != ""){
+            return true;
+        }
+        return false;
+    }
 ?>

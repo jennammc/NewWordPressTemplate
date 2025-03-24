@@ -1,14 +1,9 @@
 <?php
-    $login_page_custom_section = get_theme_mod('login_page_custom_section');
-    $site_login_redirect = get_theme_mod('site_login_redirect');
-
-    if($login_page_custom_section == true){
-
+    $require_user_is_logged_in = get_theme_mod('site_require_user_is_logged_in');
+    
+    if($require_user_is_logged_in == true){
+        $site_login_redirect = get_theme_mod('site_login_redirect');
         check_if_user_is_logged_in_and_on_homepage($site_login_redirect);
-
-        $login_form_args = array(
-            'redirect' => $site_login_redirect
-        );
     }
 ?>
 <!doctype html>
@@ -41,7 +36,7 @@
 
 
     <?php include("includes/announcement-bar.php"); ?>
-    <header class="header" role="banner">   
+    <header class="header" role="banner test">   
         <div class="container">
             <div class="row">
                 <div class="col">
