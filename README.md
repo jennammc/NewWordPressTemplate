@@ -34,4 +34,21 @@ Upload the theme to the server
 
 ## 6. Other Site Settings
 
+### Contact and Social Accounts
+
+### User Logins
+If the site requires a user login page, this involves several steps to set this up:
+1. On the homepage, set the template to `Page: Login` as the homepage will be where the user logs in
+2. Navigate to Appearance > Customize > 
+
+## 7. Blog
+
+
+## 8. Creating Custom Post Types
+
+
+## 7. Required Plugins
+The plugin [Advance Custom Fields](https://www.advancedcustomfields.com/resources/) is required for this theme.
+
+
 
