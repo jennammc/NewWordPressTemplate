@@ -1,3 +1,16 @@
+<?php
+    $login_page_custom_section = get_theme_mod('login_page_custom_section');
+    $site_login_redirect = get_theme_mod('site_login_redirect');
+
+    if($login_page_custom_section == true){
+
+        check_if_user_is_logged_in_and_on_homepage($site_login_redirect);
+
+        $login_form_args = array(
+            'redirect' => $site_login_redirect
+        );
+    }
+?>
 <!doctype html>
 <html <?php language_attributes(); ?> class="no-js">
   <head>

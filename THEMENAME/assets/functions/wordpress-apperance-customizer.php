@@ -1,5 +1,11 @@
 <?php
 
+/* ********************************************************
+ * For updating the theme's custom options.
+ * This can be found: WordPress Dashboard > Appearance > Customize > Site Identity
+ * For more options: https://developer.wordpress.org/reference/classes/wp_customize_control/__construct/
+ * ******************************************************** */
+
 function add_custom_panel($wp_customize){
 
     $wp_customize->add_panel('custom_panel',array(
@@ -98,6 +104,29 @@ function add_custom_panel($wp_customize){
     );
 
 
+
+    //Site Social: Instagram
+    $wp_customize->add_setting( 'site_social_instagram' );
+    $wp_customize->add_control( 'site_social_instagram',
+       array(
+            'label' => 'Instagram URL',
+            'section' =>'contact_custom_section',
+            'settings' => 'site_social_instagram',
+        )
+    );
+
+
+    //Site Social: Youtube
+    $wp_customize->add_setting( 'site_social_youtube' );
+    $wp_customize->add_control( 'site_social_youtube',
+       array(
+            'label' => 'Youtube URL',
+            'section' =>'contact_custom_section',
+            'settings' => 'site_social_youtube',
+        )
+    );
+
+
     //---------------------------------------------------------------------------------
     // Theme Options: Announcement Bar
     //---------------------------------------------------------------------------------
@@ -179,7 +208,7 @@ function add_custom_panel($wp_customize){
     $wp_customize->add_setting('site_header_image');
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'site_header_image',
         array(
-            'label' => 'Heaer Image',
+            'label' => 'Header Image',
             'section' =>'header_custom_section',
             'settings' => 'site_header_image',
         ) 
@@ -195,6 +224,41 @@ function add_custom_panel($wp_customize){
             'settings' => 'site_show_search_bar',
             'type' => 'checkbox',
         ) 
+    );
+
+
+    //---------------------------------------------------------------------------------
+    // Theme Options: Login Page
+    //---------------------------------------------------------------------------------
+    //create interior panel
+    $wp_customize->add_section('login_page_custom_section',array(
+        'title'=>'Login Page',
+        'priority'=>10,
+        'panel'=>'custom_panel',
+    ));
+
+
+    //Use Login Page
+    $wp_customize->add_setting( 'site_require_user_is_logged_in' );
+    $wp_customize->add_control( 'site_require_user_is_logged_in',
+       array(
+            'label' => 'Use Login Page',
+            'section' =>'login_page_custom_section',
+            'settings' => 'site_require_user_is_logged_in',
+            'description' => 'If this is checked, a login will be required to view all pages of the site.',
+            'type' => 'checkbox'
+        )
+    );
+
+    //Use Login Page
+    $wp_customize->add_setting( 'site_login_redirect' );
+    $wp_customize->add_control( 'site_login_redirect',
+       array(
+            'label' => 'Login Redirect',
+            'section' =>'login_page_custom_section',
+            'settings' => 'site_login_redirect',
+            'description' => 'Where to redirect the user after loggin in.',
+        )
     );
 
 
@@ -283,21 +347,34 @@ function add_custom_panel($wp_customize){
 
 
     //---------------------------------------------------------------------------------
-    // Theme Options: Google Analytics
+    // Theme Options: Analytics
     //---------------------------------------------------------------------------------
     //create interior panel
-    $wp_customize->add_section('google_analytics_custom_section',array(
-        'title'=>'Google Analytics',
+    $wp_customize->add_section('analytics_custom_section',array(
+        'title'=>'Analytics',
         'priority'=>10,
         'panel'=>'custom_panel',
     ));
+
     //Google Analytics Code
     $wp_customize->add_setting( 'site_google_analytics_code' );
     $wp_customize->add_control( 'site_google_analytics_code',
        array(
             'label' => 'Google Analytics Code',
-            'section' =>'google_analytics_custom_section',
+            'section' =>'analytics_custom_section',
             'settings' => 'site_google_analytics_code',
+            'type' => 'textarea'
+        )
+    );
+
+
+    //Pixel Code
+    $wp_customize->add_setting( 'site_pixel_code' );
+    $wp_customize->add_control( 'site_pixel_code',
+       array(
+            'label' => 'Pixel Code',
+            'section' =>'analytics_custom_section',
+            'settings' => 'site_pixel_code',
             'type' => 'textarea'
         )
     );

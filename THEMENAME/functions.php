@@ -6,7 +6,7 @@
 
 // Remove Admin bar
 function remove_admin_bar() {
-  return true;
+    return true;
 }
 
 // :::::::::: External Modules/Files ::::::::::
@@ -34,6 +34,17 @@ require_once(get_template_directory().'/assets/functions/login.php');
 // Customize the WordPress admin
 require_once(get_template_directory().'/assets/functions/admin.php'); 
 
+// Customizer additions
+// Can be found under WordPress Dashboard > Appearance > Customize > Site Identity
+require get_template_directory() . '/assets/functions/wordpress-apperance-customizer.php';
+
+
+
+// :::::::::: Custom Post Types ::::::::::
+// require_once(get_template_directory().'/assets/functions/custom-post-type.php'); 
+
+
+
 
 // :::::::::: Other Functions ::::::::::
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
@@ -47,21 +58,18 @@ function my_wp_nav_menu_args($args = '') {
 // Create menu for pages
 function wpb_list_child_pages() { 
 
-  global $post; 
+    global $post; 
   
-  if ( is_page() && $post->post_parent )
+    if ( is_page() && $post->post_parent )
+  	    $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
+    else
+  	     $childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
   
-  	$childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->post_parent . '&echo=0' );
-  else
-  	$childpages = wp_list_pages( 'sort_column=menu_order&title_li=&child_of=' . $post->ID . '&echo=0' );
+    if ( $childpages ) {
+        $string = '<ul>' . $childpages . '</ul>';
+    }
   
-  if ( $childpages ) {
-  
-  	$string = '<ul>' . $childpages . '</ul>';
-  }
-  
-  return $string;
-
+    return $string;
 }
 
 add_shortcode('wpb_childpages', 'wpb_list_child_pages');
@@ -70,39 +78,31 @@ add_shortcode('wpb_childpages', 'wpb_list_child_pages');
 
 // Remove Injected classes, ID's and Page ID's from Navigation <li> items
 function my_css_attributes_filter($var) {
-  return is_array($var) ? array() : '';
+    return is_array($var) ? array() : '';
 }
 
 // Remove invalid rel attribute values in the categorylist
 function remove_category_rel_from_category_list($thelist) {
-  return str_replace('rel="category tag"', 'rel="tag"', $thelist);
+    return str_replace('rel="category tag"', 'rel="tag"', $thelist);
 }
 
 // Add page slug to body class, love this - Credit: Starkers Wordpress Theme
 function add_slug_to_body_class($classes) {
-  global $post;
-  if (is_home()) {
-    $key = array_search('blog', $classes);
-    if ($key > -1) {
-      unset($classes[$key]);
+    global $post;
+    if (is_home()) {
+        $key = array_search('blog', $classes);
+        if ($key > -1) {
+            unset($classes[$key]);
+        }
+    } elseif (is_page()) {
+        $classes[] = sanitize_html_class($post->post_name);
+    } elseif (is_singular()) {
+        $classes[] = sanitize_html_class($post->post_name);
     }
-  } elseif (is_page()) {
-    $classes[] = sanitize_html_class($post->post_name);
-  } elseif (is_singular()) {
-    $classes[] = sanitize_html_class($post->post_name);
-  }
-
-  return $classes;
+    return $classes;
 }
 
-
-    /*
-      |----------------------------------------------------------
-      | Customizer additions
-      | * Can be found under WordPress Dashboard > Appearance > Customize > Site Identity
-      |----------------------------------------------------------
-    */
-    require get_template_directory() . '/assets/functions/wordpress-apperance-customizer.php';
+    
 
 
     /*
@@ -119,36 +119,36 @@ function add_slug_to_body_class($classes) {
     add_action('init', 'register_my_menu');
 
 
-
     /*
-    |----------------------------------------------------------
-    | custom menu support
-    | * @param string $file - the name of the file (eg. "sidebar.php" )
-    | * @param obj $variable_obj an object containing variables to use in the imported file (eg. echo $variable_obj['object_keyname'];)
-    |
-    | Example: include_file("navbar.php", array('navbar_id' => 'navbar-subpage-menu'));
-    |----------------------------------------------------------
+     |----------------------------------------------------------
+     | prevent WordPress from making duplicates
+     |----------------------------------------------------------
     */
-    function include_file($file, $variable_obj){
-        include($file);
+    add_filter('intermediate_image_sizes_advanced', 'filter_image_sizes');
+    function filter_image_sizes( $sizes) {
+         $new_sizes = array();
+         $new_sizes['thumbnail'] = $sizes['thumbnail'];
+         $new_sizes['full'] = $sizes['full'];
+         return $new_sizes;
     }
-
-
 
 
 
     /*
     |----------------------------------------------------------
-    | Filter the except length to X words.
-    | * @param int $length Excerpt length.
-    | * @return int (Maybe) modified excerpt length.
+    | Checks if user is logged in and is on the homepage. 
+    | If they are, redirects elsewhere
+    | Otherwise, keep user on the page to login
     |----------------------------------------------------------
     */
-    function wpdocs_custom_excerpt_length( $length ) {
-        $max_word_count = 200;
-        return $max_word_count;
+    function check_if_user_is_logged_in_and_on_homepage($new_page){
+        $is_user_logged_in = is_user_logged_in();
+        $is_front_page = is_front_page();
+
+        if($is_user_logged_in && $is_front_page){
+            header("Location: " . $new_page);
+        }
     }
-    add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 
 ?>

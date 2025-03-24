@@ -1,12 +1,7 @@
 <?php 
-    /* Template Name: Homepage */ 
-    get_header(); 
+    /* Template Name: Page: Homepage */ 
+    get_header();
 ?>
-
-<?php
-               
-?>
-
 
 <main role="main" class="home">
    <div class="container">
@@ -26,13 +21,6 @@
        </div>
    </div>
 </main>
-
-
-   
-
-
-
-
 
 
 <?php get_footer(); ?>
