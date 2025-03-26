@@ -54,15 +54,7 @@
                         </button>
 
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <?php 
-                                wp_nav_menu( array(
-                                  'theme_location' => 'header_nav', 
-                                  'container' => '',
-                                  'menu_class' => 'collapse navbar-collapse',
-                                  'items_wrap' => '<ul  class="navbar-nav mr-auto">%3$s</ul>',
-                                  'after' => '<span class="separator">&bull;</span>'
-                                )); 
-                            ?>
+                            <?php display_wp_menu("header_nav"); ?>
                         
                             <?php include("includes/social-links.php"); ?>
                             <?php include("includes/searchform.php"); ?>
