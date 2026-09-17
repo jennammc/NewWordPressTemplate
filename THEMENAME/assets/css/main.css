@@ -27,12 +27,12 @@
 
 
 :root{
-    --primary-link-color: #28a745;
+    --primary-link-color: black;
     --primary-link-color-hover: #28a745;
 
-    --header-background-color: #f8f9fa;
-    --header-link-color: #007bff;
-    --header-menu-link-hover: #007bff;
+    --header-background-color: black;
+    --header-link-color: white;
+    --header-link-color-hover: gray;
     --header-social-link-background-color: #f8f9fa;
     --header-social-link-color-hover: #007bff;
     --header-social-link-background-color-hover: #007bff;
@@ -43,10 +43,10 @@
     --primary-button-color-hover: #FFF;
     --primary-button-background-color-hover: #28a745;
 
-    --footer-background-color: #f8f9fa;
-    --footer-color: #212529;
-    --footer-link-color: #212529;
-    --footer-link-color-hover: #212529;
+    --footer-background-color: black;
+    --footer-color: white;
+    --footer-link-color: white;
+    --footer-link-color-hover: gray;
     --footer-social-link-color: #007bff;
     --footer-social-link-background-color: #212529;
     --footer-social-link-background-color-hover: #212529;
@@ -111,6 +111,14 @@ header.header nav.navbar{
     padding-left: 0;
     padding-right: 0;
 }
+header.header nav.navbar a{
+    color: var(--header-link-color);
+}
+header.header nav.navbar a:hover{
+    color: var(--header-link-color-hover);
+}
+
+
 header.header nav.navbar a.navbar-brand img{
     width: 250px; 
 }
@@ -124,17 +132,17 @@ header.header nav.navbar .navbar-collapse ul{
 }
 header.header nav.navbar .navbar-collapse ul li a,
 header.header nav.navbar .navbar-collapse ul li a:visited{
-    color: var(--header-menu-link);
+    color: var(--header-link-color);
     display: inline-block;
     padding: 5px 10px;
     text-transform: uppercase;
 }
 header.header nav.navbar .navbar-collapse ul li a:hover{
-    color: var(--header-menu-link-hover);
+    color: var(--header-link-color-hover);
     text-decoration: none;
 }
 header.header nav.navbar .navbar-collapse ul li span.separator{
-    color: var(--header-menu-link-color);
+    color: var(--header-link-color);
 }
 header.header nav.navbar .navbar-collapse ul li:last-child span.separator {
     display: none;
@@ -222,14 +230,12 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
     .mobile-menu-btn {
         background-color: transparent;
         border: 0;
-        display: inline-block;
+        display: block;
         height: 50px;
-        right: 9px;
         margin: 0;
         margin-top: 1px;
         min-width: inherit;
-        position: absolute;
-        top: 11px;
+        position: relative;
         width: 50px;
         z-index: 2;
     }
@@ -255,7 +261,7 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
     .mobile-menu-btn span,
     .mobile-menu-btn span::before,
     .mobile-menu-btn span::after {
-        background-color: var(--header-menu-link-color);
+        background-color: var(--header-link-color);
         display: block;
         height: 1px;
         transition: all .3s ease-in-out;
@@ -271,7 +277,7 @@ header.header nav.navbar .navbar-collapse ul.social-links li a:hover .icon{
         background-color: transparent;
     }
     .mobile-menu-btn:not(.collapsed) span::before, .mobile-menu-btn:not(.collapsed) span::after {
-        background-color: var(--menu-link);
+        background-color: var(--header-link-color);
         top: 0;
     }
     .mobile-menu-btn:not(.collapsed) span::before {
@@ -411,7 +417,7 @@ main.interior-404 .main-content h1 {
     * 11. Interior Pages
 ==========================================================*/
 main.interior{
-    margin: 100px 0;
+    margin: 0 0;
 }
 
 
@@ -419,7 +425,10 @@ main.interior{
 /*==========================================================
     * 12. 
 ==========================================================*/
-
+main.template-basic{
+    min-height: calc(100vh - 228px);
+    padding: 40px 0;
+}
 
 
 

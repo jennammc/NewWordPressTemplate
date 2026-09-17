@@ -2,7 +2,7 @@
     function get_wp_menu($wp_menu_name, $current_page_id = null){
         $current_page_id = !is_null($current_page_id) ? $current_page_id : get_the_ID();
         $menu_locations = get_nav_menu_locations();
-        $header_menu_id = $menu_locations[$wp_menu_name];
+        $header_menu_id = isset($menu_locations[$wp_menu_name]) ? $menu_locations[$wp_menu_name] : null;
         $wp_menu = wp_get_nav_menu_items($header_menu_id );
         $menu = array();
 
